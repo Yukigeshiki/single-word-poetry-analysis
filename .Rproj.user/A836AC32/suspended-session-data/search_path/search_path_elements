@@ -1,0 +1,11 @@
+.GlobalEnv
+tools:rstudio
+package:stats
+package:graphics
+package:grDevices
+package:utils
+package:datasets
+package:EightyR
+package:methods
+Autoloads
+package:base
