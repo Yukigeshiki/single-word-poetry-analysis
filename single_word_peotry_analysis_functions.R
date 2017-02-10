@@ -73,11 +73,11 @@ Yeats <- function() {
     return(finalScore)
   }
   
-  # nrs analysis function 
+  # nrc analysis function 
   
   nrcAnalysePoems <- function(sent) {
     
-    textTokenized <- nrsPoem %>%
+    textTokenized <- nrcPoem %>%
       unnest_tokens(word, poem)
     
     data("stop_words")
@@ -153,33 +153,33 @@ Yeats <- function() {
   dateAndScore <- data.frame(scores) %>%
     mutate(date = year(ymd(str_c(poemDataFrame$date, "/01/01")))) 
   
-  # do nrs analysis
+  # do nrc analysis
   
   sentimentsVec <- c("anger", "anticipation", "disgust", "fear",
                      "joy","sadness", "surprise", "trust")
   
-  nrsAnalysisDataFrame <- list()
+  nrcAnalysisDataFrame <- list()
   
   for (i in 1:length(poemDataFrame$poem)) {
     
-    nrsPoem <- data_frame(poem = poemDataFrame$poem[i])
+    nrcPoem <- data_frame(poem = poemDataFrame$poem[i])
     
-    nrsDataFrame <- as.data.frame(sapply(sentimentsVec, nrcAnalysePoems)) %>%
+    nrcDataFrame <- as.data.frame(sapply(sentimentsVec, nrcAnalysePoems)) %>%
       rownames_to_column() %>%
       select(sentiment = rowname, value = 2) %>%
       mutate(name = poemDataFrame$poemName[i], 
              date = poemDataFrame$date[i])
     
-    nrsAnalysisDataFrame[[i]] <- nrsDataFrame
+    nrcAnalysisDataFrame[[i]] <- nrcDataFrame
   }
   
-  # rbind all nrs analysis
+  # rbind all nrc analysis
   
-  nrsAnalysisDataFrame <- do.call(rbind, nrsAnalysisDataFrame)
+  nrcAnalysisDataFrame <- do.call(rbind, nrcAnalysisDataFrame)
   
   # return data frames 
   
-  return(list(dateAndScore, nrsAnalysisDataFrame))
+  return(list(dateAndScore, nrcAnalysisDataFrame))
 }
 
 
@@ -249,11 +249,11 @@ Eliot <- function() {
     return(finalScore)
   }
   
-  # nrs analysis function 
+  # nrc analysis function 
   
   nrcAnalysePoems <- function(sent) {
     
-    textTokenized <- nrsPoem %>%
+    textTokenized <- nrcPoem %>%
       unnest_tokens(word, poem)
     
     data("stop_words")
@@ -322,33 +322,33 @@ Eliot <- function() {
   dateAndScore <- data.frame(scores) %>%
     mutate(date = year(ymd(str_c(poemDataFrame$date, "/01/01")))) 
   
-  # do nrs analysis
+  # do nrc analysis
   
   sentimentsVec <- c("anger", "anticipation", "disgust", "fear",
                      "joy","sadness", "surprise", "trust")
   
-  nrsAnalysisDataFrame <- list()
+  nrcAnalysisDataFrame <- list()
   
   for (i in 1:length(poemDataFrame$poem)) {
     
-    nrsPoem <- data_frame(poem = poemDataFrame$poem[i])
+    nrcPoem <- data_frame(poem = poemDataFrame$poem[i])
     
-    nrsDataFrame <- as.data.frame(sapply(sentimentsVec, nrcAnalysePoems)) %>%
+    nrcDataFrame <- as.data.frame(sapply(sentimentsVec, nrcAnalysePoems)) %>%
       rownames_to_column() %>%
       select(sentiment = rowname, value = 2) %>%
       mutate(name = poemDataFrame$poemName[i], 
              date = poemDataFrame$date[i])
     
-    nrsAnalysisDataFrame[[i]] <- nrsDataFrame
+    nrcAnalysisDataFrame[[i]] <- nrcDataFrame
   }
   
-  # rbind all nrs analysis
+  # rbind all nrc analysis
   
-  nrsAnalysisDataFrame <- do.call(rbind, nrsAnalysisDataFrame)
+  nrcAnalysisDataFrame <- do.call(rbind, nrcAnalysisDataFrame)
   
   # return data frames 
   
-  return(list(dateAndScore, nrsAnalysisDataFrame))
+  return(list(dateAndScore, nrcAnalysisDataFrame))
 }
 
 ## Scrape for Frost ##
@@ -417,11 +417,11 @@ Frost <- function() {
     return(finalScore)
   }
   
-  # nrs analysis function 
+  # nrc analysis function 
   
   nrcAnalysePoems <- function(sent) {
     
-    textTokenized <- nrsPoem %>%
+    textTokenized <- nrcPoem %>%
       unnest_tokens(word, poem)
     
     data("stop_words")
@@ -492,33 +492,33 @@ Frost <- function() {
   dateAndScore <- data.frame(scores) %>%
     mutate(date = year(ymd(str_c(poemDataFrame$date, "/01/01")))) 
   
-  # do nrs analysis
+  # do nrc analysis
   
   sentimentsVec <- c("anger", "anticipation", "disgust", "fear",
                      "joy","sadness", "surprise", "trust")
   
-  nrsAnalysisDataFrame <- list()
+  nrcAnalysisDataFrame <- list()
   
   for (i in 1:length(poemDataFrame$poem)) {
     
-    nrsPoem <- data_frame(poem = poemDataFrame$poem[i])
+    nrcPoem <- data_frame(poem = poemDataFrame$poem[i])
     
-    nrsDataFrame <- as.data.frame(sapply(sentimentsVec, nrcAnalysePoems)) %>%
+    nrcDataFrame <- as.data.frame(sapply(sentimentsVec, nrcAnalysePoems)) %>%
       rownames_to_column() %>%
       select(sentiment = rowname, value = 2) %>%
       mutate(name = poemDataFrame$poemName[i], 
              date = poemDataFrame$date[i])
     
-    nrsAnalysisDataFrame[[i]] <- nrsDataFrame
+    nrcAnalysisDataFrame[[i]] <- nrcDataFrame
   }
   
-  # rbind all nrs analysis
+  # rbind all nrc analysis
   
-  nrsAnalysisDataFrame <- do.call(rbind, nrsAnalysisDataFrame)
+  nrcAnalysisDataFrame <- do.call(rbind, nrcAnalysisDataFrame)
   
   # return data frames 
   
-  return(list(dateAndScore, nrsAnalysisDataFrame))
+  return(list(dateAndScore, nrcAnalysisDataFrame))
 }
 
 ## Scrape for Wallace ##
@@ -587,11 +587,11 @@ Wallace <- function() {
     return(finalScore)
   }
   
-  # nrs analysis function 
+  # nrc analysis function 
   
   nrcAnalysePoems <- function(sent) {
     
-    textTokenized <- nrsPoem %>%
+    textTokenized <- nrcPoem %>%
       unnest_tokens(word, poem)
     
     data("stop_words")
@@ -664,33 +664,33 @@ Wallace <- function() {
   dateAndScore <- data.frame(scores) %>%
     mutate(date = year(ymd(str_c(poemDataFrame$date, "/01/01"))))
   
-  # do nrs analysis
+  # do nrc analysis
   
   sentimentsVec <- c("anger", "anticipation", "disgust", "fear",
                      "joy","sadness", "surprise", "trust")
   
-  nrsAnalysisDataFrame <- list()
+  nrcAnalysisDataFrame <- list()
   
   for (i in 1:length(poemDataFrame$poem)) {
     
-    nrsPoem <- data_frame(poem = poemDataFrame$poem[i])
+    nrcPoem <- data_frame(poem = poemDataFrame$poem[i])
     
-    nrsDataFrame <- as.data.frame(sapply(sentimentsVec, nrcAnalysePoems)) %>%
+    nrcDataFrame <- as.data.frame(sapply(sentimentsVec, nrcAnalysePoems)) %>%
       rownames_to_column() %>%
       select(sentiment = rowname, value = 2) %>%
       mutate(name = poemDataFrame$poemName[i], 
              date = poemDataFrame$date[i])
     
-    nrsAnalysisDataFrame[[i]] <- nrsDataFrame
+    nrcAnalysisDataFrame[[i]] <- nrcDataFrame
   }
   
-  # rbind all nrs analysis
+  # rbind all nrc analysis
   
-  nrsAnalysisDataFrame <- do.call(rbind, nrsAnalysisDataFrame)
+  nrcAnalysisDataFrame <- do.call(rbind, nrcAnalysisDataFrame)
   
   # return data frames 
   
-  return(list(dateAndScore, nrsAnalysisDataFrame))
+  return(list(dateAndScore, nrcAnalysisDataFrame))
 }
 
 ## Scrape for Cummings ##
@@ -759,11 +759,11 @@ Cummings <- function() {
     return(finalScore)
   }
   
-  # nrs analysis function 
+  # nrc analysis function 
   
   nrcAnalysePoems <- function(sent) {
     
-    textTokenized <- nrsPoem %>%
+    textTokenized <- nrcPoem %>%
       unnest_tokens(word, poem)
     
     data("stop_words")
@@ -828,29 +828,29 @@ Cummings <- function() {
   dateAndScore <- data.frame(scores) %>%
     mutate(date = year(ymd(str_c(poemDataFrame$date, "/01/01")))) 
   
-  # do nrs analysis
+  # do nrc analysis
   
   sentimentsVec <- c("anger", "anticipation", "disgust", "fear",
                      "joy","sadness", "surprise", "trust")
   
-  nrsAnalysisDataFrame <- data.frame()
+  nrcAnalysisDataFrame <- data.frame()
   
   for (i in 1:length(poemDataFrame$poem)) {
     
-    nrsPoem <- data_frame(poem = poemDataFrame$poem[i])
+    nrcPoem <- data_frame(poem = poemDataFrame$poem[i])
     
-    nrsDataFrame <- as.data.frame(sapply(sentimentsVec, nrcAnalysePoems)) %>%
+    nrcDataFrame <- as.data.frame(sapply(sentimentsVec, nrcAnalysePoems)) %>%
       rownames_to_column() %>%
       select(sentiment = rowname, value = 2) %>%
       mutate(name = poemDataFrame$poemName[i], 
              date = poemDataFrame$date[i])
     
-    nrsAnalysisDataFrame <- rbind(nrsAnalysisDataFrame, nrsDataFrame)
+    nrcAnalysisDataFrame <- rbind(nrcAnalysisDataFrame, nrcDataFrame)
   }
   
   # return data frames 
   
-  return(list(dateAndScore, nrsAnalysisDataFrame))
+  return(list(dateAndScore, nrcAnalysisDataFrame))
 }
 
 ## Scrape for Lawrence ##
@@ -919,11 +919,11 @@ Lawrence <- function() {
     return(finalScore)
   }
   
-  # nrs analysis function 
+  # nrc analysis function 
   
   nrcAnalysePoems <- function(sent) {
     
-    textTokenized <- nrsPoem %>%
+    textTokenized <- nrcPoem %>%
       unnest_tokens(word, poem)
     
     data("stop_words")
@@ -992,31 +992,31 @@ Lawrence <- function() {
   dateAndScore <- data.frame(scores) %>%
     mutate(date = year(ymd(str_c(poemDataFrame$date, "/01/01")))) 
   
-  # do nrs analysis
+  # do nrc analysis
   
   sentimentsVec <- c("anger", "anticipation", "disgust", "fear",
                      "joy","sadness", "surprise", "trust")
   
-  nrsAnalysisDataFrame <- list()
+  nrcAnalysisDataFrame <- list()
   
   for (i in 1:length(poemDataFrame$poem)) {
     
-    nrsPoem <- data_frame(poem = poemDataFrame$poem[i])
+    nrcPoem <- data_frame(poem = poemDataFrame$poem[i])
     
-    nrsDataFrame <- as.data.frame(sapply(sentimentsVec, nrcAnalysePoems)) %>%
+    nrcDataFrame <- as.data.frame(sapply(sentimentsVec, nrcAnalysePoems)) %>%
       rownames_to_column() %>%
       select(sentiment = rowname, value = 2) %>%
       mutate(name = poemDataFrame$poemName[i], 
              date = poemDataFrame$date[i])
     
-    nrsAnalysisDataFrame[[i]] <- nrsDataFrame
+    nrcAnalysisDataFrame[[i]] <- nrcDataFrame
   }
   
-  # rbind all nrs analysis
+  # rbind all nrc analysis
   
-  nrsAnalysisDataFrame <- do.call(rbind, nrsAnalysisDataFrame)
+  nrcAnalysisDataFrame <- do.call(rbind, nrcAnalysisDataFrame)
   
   # return data frames 
   
-  return(list(dateAndScore, nrsAnalysisDataFrame))
+  return(list(dateAndScore, nrcAnalysisDataFrame))
 }
